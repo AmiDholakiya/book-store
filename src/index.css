@@ -1,3 +1,29 @@
+:root {
+  --color-project-title: #2196f3;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #200b46;
+  --color-title: #2196f3;
+  --color-card2: #14143a;
+  /* --color-background-right: #601c8f;
+  --color-background-left: #150550; */
+
+  --color-background-right: #081E2F;
+  --color-background-left: #030F17;
+
+  --color-button-hover: #01c2c3;
+  --color-button: #318D85;
+
+  --color-background-2: #0d012c;
+  --color-icon-background: #464a68;
+  --color-card-background: #1f0a44 0;
+
+  --box-shadow: 0.2rem 3rem var(var(--color-light));
+  --card-box-shadow: 0px 30px 60px 0px rgb(0 0 0 / 10%) !important;
+  --card-box-shadow-hover: 0px 30px 60px 0px rgb(0 0 0 / 10%) !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
