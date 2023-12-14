@@ -9,19 +9,27 @@ import { useAppDispatch } from "redux/store";
 import { addBook } from "redux/bookSlice";
 import { generateId } from "utils";
 import AddImg from "../../assets/AddIcon.svg"
+import { ToastCustom } from "components";
 
 const Home = () => {
-  const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
-    const [addModal,setAddModal] = useState(false)
-    const [newBook,setNewBook] = useState<BookType>(initialBookObj)
+    const [addModal, setAddModal] = useState(false)
+    const [newBook, setNewBook] = useState<BookType>(initialBookObj)
 
-    const addNewBookSubmit = ()=>{
-        dispatch(addBook({...newBook,id: generateId(5)}));
+    const [showToast, setShowToast] = useState<boolean>(false);
+
+
+    const addNewBookSubmit = () => {
+        if (newBook.name == "" || newBook.price == null || newBook.category == "" || newBook.description == "") {
+            setShowToast(true)
+            return;
+        }
+        dispatch(addBook({ ...newBook, id: generateId(5) }));
         closeAddModal();
     }
 
-    const closeAddModal = () =>{
+    const closeAddModal = () => {
         setAddModal(false);
         setNewBook(initialBookObj)
     }
@@ -31,15 +39,18 @@ const Home = () => {
     }
 
     return <>
-    <div className="home-body">
-        <div className="top-bar">
-            <Button onClick={()=>{setAddModal(true)}} className="add-btn">Add New Book <img className="add-image" src={AddImg}/></Button>
+        <div className="home-body">
+            <div className="top-bar">
+                <Button onClick={() => { setAddModal(true) }} className="add-btn">Add New Book <img className="add-image" src={AddImg} /></Button>
+            </div>
+            <BookList />
         </div>
-        <BookList />
-    </div>
-    <BookModal showModal={addModal} title={`Add New Book`} onSubmit={() => addNewBookSubmit()} onClose={() => closeAddModal()} submitButtonText="Add" >
+        <BookModal showModal={addModal} title={`Add New Book`} onSubmit={() => addNewBookSubmit()} onClose={() => closeAddModal()} submitButtonText="Add" >
             <Book book={initialBookObj} handleChange={handleAddBookChange} />
         </BookModal>
+
+        <ToastCustom show={showToast} message="Enter all fields' valid values !" variant="danger" onClose={() => setShowToast(false)} />
+
     </>
 }
 
