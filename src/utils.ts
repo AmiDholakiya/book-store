@@ -8,6 +8,8 @@ export function generateId (len: any) {
     return Array.from(arr, dec2hex).join('')
   }
 
+export const priceRegEx = /^[+-]?([0-9]*([.][0-9]*)?|[.][0-9]+)$/;
+
   // export function convertFormStateToBookType(formState: FormState | undefined): BookType {
   //   const book: BookType = {
   //     id: formState?.id as string, // Assuming id is a required string in BookType

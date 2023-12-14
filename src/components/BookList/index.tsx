@@ -10,7 +10,7 @@ import { BookType } from "types";
 
 export const initialBookObj = {
     name: "",
-    price: 0,
+    price: null,
     category: "",
     description: "",
     id: ""
@@ -60,7 +60,6 @@ const BookList = () => {
         setCurrentPage(pageNumber);
       };
 
-      console.log(bookList.length)
     return <>
         <div className="book-list-card">
             <div className="book-list">

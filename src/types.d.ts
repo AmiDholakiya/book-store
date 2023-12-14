@@ -1,9 +1,9 @@
 export type BookType = {
-    id:string | any | undefined;
-    name:string | undefined;
-    price:number | undefined;
-    category:string | undefined;
-    description:string | undefined;
+    id:string | any | null;
+    name:string | null;
+    price:number | null;
+    category:string | null;
+    description:string | null;
 }
 
 export type AddBookType = {
@@ -14,5 +14,5 @@ export type AddBookType = {
 }
 
 export interface FormState {
-    [key: string]: string | undefined;
+    [key: string]: string | null;
 }
